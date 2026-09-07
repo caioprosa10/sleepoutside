@@ -125,6 +125,36 @@ button {
 
 .cart svg {
   width: 25px;
+  transform-origin: center bottom;
+}
+
+/* plays once each time an item is added to the cart */
+.cart--bounce svg {
+  animation: cart-bounce 0.6s ease;
+}
+
+@keyframes cart-bounce {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+  25% {
+    transform: scale(1.35) rotate(-10deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(8deg);
+  }
+  75% {
+    transform: scale(1.25) rotate(-4deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart--bounce svg {
+    animation: none;
+  }
 }
 
 .cart:hover svg {

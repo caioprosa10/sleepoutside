@@ -21,3 +21,18 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+// briefly animate the cart (backpack) icon in the header
+export function animateCartIcon() {
+  const cart = qs(".cart");
+  if (!cart) return;
+  // restart the animation even if it is still running from a previous click
+  cart.classList.remove("cart--bounce");
+  void cart.offsetWidth;
+  cart.classList.add("cart--bounce");
+  cart.addEventListener(
+    "animationend",
+    () => cart.classList.remove("cart--bounce"),
+    { once: true },
+  );
+}

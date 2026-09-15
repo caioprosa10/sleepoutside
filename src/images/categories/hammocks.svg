@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Hammocks">
+  <g fill="none" stroke="#525b0f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <line x1="16" y1="24" x2="16" y2="82" />
+    <line x1="84" y1="24" x2="84" y2="82" />
+    <path d="M16 40 Q50 88 84 40" fill="#a9b040" fill-opacity="0.3" />
+    <path d="M16 40 Q50 74 84 40" stroke-width="2.5" fill="none" />
+    <line x1="16" y1="40" x2="28" y2="28" stroke-width="2.5" />
+    <line x1="84" y1="40" x2="72" y2="28" stroke-width="2.5" />
+  </g>
+</svg>

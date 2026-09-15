@@ -1,19 +1,10 @@
-import { setLocalStorage, animateCartIcon } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
+import ProductDetails from "./productDetail.mjs";
+import { getParam } from "./utils.mjs";
 
-const dataSource = new ProductData("tents");
+// grab the product id that was passed in the URL (?product=ID)
+const productId = getParam("product");
 
-function addProductToCart(product) {
-  setLocalStorage("so-cart", product);
-  animateCartIcon();
-}
-// add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
-}
-
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+const dataSource = new ProductData();
+const product = new ProductDetails(productId, dataSource);
+product.init();

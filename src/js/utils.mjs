@@ -22,6 +22,28 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
+// get a parameter value from the query string of the current URL
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get(param);
+}
+
+// render a list of items into a parent element using a template function
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = true,
+) {
+  const htmlStrings = list.map(templateFn);
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
+}
+
 // briefly animate the cart (backpack) icon in the header
 export function animateCartIcon() {
   const cart = qs(".cart");

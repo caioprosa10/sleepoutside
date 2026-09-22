@@ -1,4 +1,9 @@
-import { setLocalStorage, animateCartIcon } from "./utils.mjs";
+import {
+  addToCart,
+  animateCartIcon,
+  getDiscountPercent,
+  formatPrice,
+} from "./utils.mjs";
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -18,7 +23,7 @@ export default class ProductDetails {
   }
 
   addProductToCart() {
-    setLocalStorage("so-cart", this.product);
+    addToCart(this.product);
     animateCartIcon();
   }
 
@@ -33,8 +38,14 @@ export default class ProductDetails {
     image.src = product.Images.PrimaryLarge;
     image.alt = product.Name;
 
-    document.getElementById("productFinalPrice").textContent =
-      `$${product.FinalPrice}`;
+    // show the discount (original price crossed out + % off badge)
+    const priceElement = document.getElementById("productFinalPrice");
+    const discount = getDiscountPercent(product);
+    priceElement.innerHTML = discount
+      ? `<span class="discount-badge">${discount}% OFF</span>
+         <span class="price--original">${formatPrice(product.SuggestedRetailPrice)}</span>
+         <span class="price--final">${formatPrice(product.FinalPrice)}</span>`
+      : formatPrice(product.FinalPrice);
     document.getElementById("productColorName").textContent =
       product.Colors?.[0]?.ColorName ?? "";
     document.getElementById("productDesc").innerHTML =

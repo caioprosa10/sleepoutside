@@ -1,6 +1,6 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-import { getParam } from "./utils.mjs";
+import { getParam, updateCartCount } from "./utils.mjs";
 
 // read the category that was passed in the URL (tents, backpacks, sleeping-bags, hammocks)
 const category = getParam("category");
@@ -27,3 +27,6 @@ const titleElement = document.querySelector(".products__title");
 if (category && titleElement) {
   titleElement.textContent = `Top Products: ${prettyCategory(category)}`;
 }
+
+// show how many items are in the cart on the backpack icon
+updateCartCount();

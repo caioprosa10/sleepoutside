@@ -341,3 +341,101 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+/* ---------- W04: cart count badge ---------- */
+.cart-count {
+  position: absolute;
+  top: 0.5em;
+  right: -0.6em;
+  min-width: 1.4em;
+  height: 1.4em;
+  padding: 0 0.3em;
+  border-radius: 0.7em;
+  background-color: var(--tertiary-color);
+  color: white;
+  font-size: 0.65em;
+  font-weight: bold;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+.cart-count[hidden] {
+  display: none;
+}
+
+/* ---------- W04: remove item from cart ---------- */
+.cart-card {
+  position: relative;
+  padding-right: 2em;
+}
+
+.cart-card__remove {
+  position: absolute;
+  top: 0.25em;
+  right: 0.25em;
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--dark-grey);
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.cart-card__remove:hover,
+.cart-card__remove:focus-visible {
+  background-color: var(--tertiary-color);
+  color: white;
+}
+
+/* ---------- W04: cart total ---------- */
+.hide {
+  display: none;
+}
+
+.cart-footer {
+  padding: 1em 0;
+  text-align: right;
+}
+
+.cart-total {
+  font-size: var(--large-font);
+  font-weight: bold;
+}
+
+.cart-empty {
+  padding: 1em 0;
+}
+
+/* ---------- W04: discount indicator ---------- */
+.product-card {
+  position: relative;
+}
+
+.discount-badge {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  background-color: var(--tertiary-color);
+  color: white;
+  font-size: var(--small-font);
+  font-weight: bold;
+}
+
+.discount-badge--card {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  z-index: 1;
+}
+
+.price--original {
+  color: #767676;
+  text-decoration: line-through;
+  margin-right: 0.4em;
+}
+
+.price--final {
+  color: var(--tertiary-color);
+  font-weight: bold;
+}
